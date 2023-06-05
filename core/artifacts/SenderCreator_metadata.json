@@ -1,0 +1,79 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "bytes",
+						"name": "initCode",
+						"type": "bytes"
+					}
+				],
+				"name": "createSender",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "sender",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"createSender(bytes)": {
+					"params": {
+						"initCode": "the initCode value from a UserOp. contains 20 bytes of factory address, followed by calldata"
+					},
+					"returns": {
+						"sender": "the returned address of the created account, or zero address on failure."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"createSender(bytes)": {
+					"notice": "call the \"initCode\" factory to create and return the sender account address"
+				}
+			},
+			"notice": "helper contract for EntryPoint, to call userOp.initCode from a \"neutral\" address, which is explicitly not the entryPoint itself.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"core/SenderCreator.sol": "SenderCreator"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"core/SenderCreator.sol": {
+			"keccak256": "0xd4d490295be9e759754a0ae568bd6a29ed1c57a1469d30fea0343462e1c9fcdf",
+			"license": "GPL-3.0",
+			"urls": [
+				"bzz-raw://5e8143288fb0ab2d5d852c70044e7be64dfd8938b24405782bba986b57b8e008",
+				"dweb:/ipfs/QmX1ohegN5FbFNcU7knRYiT41S1nPhF7TakED2TjNMcFy9"
+			]
+		}
+	},
+	"version": 1
+}

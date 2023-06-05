@@ -1,0 +1,392 @@
+{
+	"compiler": {
+		"version": "0.8.17+commit.8df45f5f"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalDeposit",
+						"type": "uint256"
+					}
+				],
+				"name": "Deposited",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "totalStaked",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "unstakeDelaySec",
+						"type": "uint256"
+					}
+				],
+				"name": "StakeLocked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "withdrawTime",
+						"type": "uint256"
+					}
+				],
+				"name": "StakeUnlocked",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "withdrawAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "StakeWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "withdrawAddress",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					}
+				],
+				"name": "Withdrawn",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "unstakeDelaySec",
+						"type": "uint32"
+					}
+				],
+				"name": "addStake",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "depositTo",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "deposits",
+				"outputs": [
+					{
+						"internalType": "uint112",
+						"name": "deposit",
+						"type": "uint112"
+					},
+					{
+						"internalType": "bool",
+						"name": "staked",
+						"type": "bool"
+					},
+					{
+						"internalType": "uint112",
+						"name": "stake",
+						"type": "uint112"
+					},
+					{
+						"internalType": "uint32",
+						"name": "unstakeDelaySec",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint48",
+						"name": "withdrawTime",
+						"type": "uint48"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "account",
+						"type": "address"
+					}
+				],
+				"name": "getDepositInfo",
+				"outputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint112",
+								"name": "deposit",
+								"type": "uint112"
+							},
+							{
+								"internalType": "bool",
+								"name": "staked",
+								"type": "bool"
+							},
+							{
+								"internalType": "uint112",
+								"name": "stake",
+								"type": "uint112"
+							},
+							{
+								"internalType": "uint32",
+								"name": "unstakeDelaySec",
+								"type": "uint32"
+							},
+							{
+								"internalType": "uint48",
+								"name": "withdrawTime",
+								"type": "uint48"
+							}
+						],
+						"internalType": "struct IStakeManager.DepositInfo",
+						"name": "info",
+						"type": "tuple"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "unlockStake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "withdrawAddress",
+						"type": "address"
+					}
+				],
+				"name": "withdrawStake",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "withdrawAddress",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "withdrawAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "withdrawTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"addStake(uint32)": {
+					"params": {
+						"unstakeDelaySec": "the new lock duration before the deposit can be withdrawn."
+					}
+				},
+				"getDepositInfo(address)": {
+					"returns": {
+						"info": "- full deposit information of given account"
+					}
+				},
+				"withdrawStake(address)": {
+					"params": {
+						"withdrawAddress": "the address to send withdrawn value."
+					}
+				},
+				"withdrawTo(address,uint256)": {
+					"params": {
+						"withdrawAddress": "the address to send withdrawn value.",
+						"withdrawAmount": "the amount to withdraw."
+					}
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"events": {
+				"StakeLocked(address,uint256,uint256)": {
+					"notice": "Emitted when stake or unstake delay are modified"
+				},
+				"StakeUnlocked(address,uint256)": {
+					"notice": "Emitted once a stake is scheduled for withdrawal"
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"addStake(uint32)": {
+					"notice": "add to the account's stake - amount and delay any pending unstake is first cancelled."
+				},
+				"balanceOf(address)": {
+					"notice": "return the deposit (for gas payment) of the account"
+				},
+				"depositTo(address)": {
+					"notice": "add to the deposit of the given account"
+				},
+				"deposits(address)": {
+					"notice": "maps paymaster to their deposits and stakes"
+				},
+				"unlockStake()": {
+					"notice": "attempt to unlock the stake. the value can be withdrawn (using withdrawStake) after the unstake delay."
+				},
+				"withdrawStake(address)": {
+					"notice": "withdraw from the (unlocked) stake. must first call unlockStake and wait for the unstakeDelay to pass"
+				},
+				"withdrawTo(address,uint256)": {
+					"notice": "withdraw from the deposit."
+				}
+			},
+			"notice": "manage deposits and stakes. deposit is just a balance used to pay for UserOperations (either by a paymaster or an account) stake is value locked for at least \"unstakeDelay\" by a paymaster.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"core/StakeManager.sol": "StakeManager"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": true,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"core/StakeManager.sol": {
+			"keccak256": "0x98dc01197b561acbbec614af551a578d31bb7288d661265eca5bebe70bc31ab2",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://fe619d35f5c8bf0d50214ebd4e3e0bb2e0d2e113d409e2ee6ae93fb2107cfdb3",
+				"dweb:/ipfs/QmQcaHEaMebCU5TqS9y1otHQpZKULM89sDvKLr2qsBWpME"
+			]
+		},
+		"interfaces/IStakeManager.sol": {
+			"keccak256": "0x95ff0f8d8faf7706d7e36035e4f8f140923dba29da22aff22fbec8420ac9caa2",
+			"license": "GPL-3.0-only",
+			"urls": [
+				"bzz-raw://5043c2a94f7f27a85ea4446d4359246a17afbe79c029bc90183ffafa6e5a2dbc",
+				"dweb:/ipfs/Qmaw9sBwMpmzPGK1LAc1wXLhRyX2RMqUpirUrcP58ck6SS"
+			]
+		}
+	},
+	"version": 1
+}
